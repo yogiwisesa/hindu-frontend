@@ -61,6 +61,8 @@ $linkColorHover: lighten($linkColor, 20%);
   color: $linkColorHover;
 }
 
+
+
 footer {
   background: #41464e;
   height: 30vh;
