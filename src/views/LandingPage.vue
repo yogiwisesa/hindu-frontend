@@ -5,16 +5,16 @@
       <div class="offset-md-1 col-md-10">
         <h1 class="title">Dapatkan daftar doa & kidung Hindu!</h1>
         <h3 class="subtitle">Sebuah proyek open source untuk umat Hindu di Indonesia</h3>
-        <p>Mari berkontribusi untuk menambahkan dan mengoreksi doa & kidung yang ada. Untuk para developer dapat menggunakan REST API untuk mengembangkan aplikasinya sendiri.</p>
-         <router-link class="btn btn-outline-dark btn-login" to="/main/tambahmantra" >Login</router-link>
-        <button class="btn btn-outline-dark btn-github">Github</button>
+        <p>Mari berkontribusi untuk menambahkan dan mengoreksi doa & kidung yang ada. Para developer dapat menggunakan REST API untuk mengembangkan aplikasinya sendiri.</p>
+         <router-link class="btn btn-outline-dark btn-login" to="/main/mantra" >Login</router-link>
+        <a href="http://github.com/yogiwisesa" target="_blank" class="btn btn-outline-dark btn-github">Github</a>
       </div>
     </div>
     
     <div class="api-documentation row">
       <div class="offset-sm-1 col-sm-10">
         <p v-for="endpoint in endpoints">
-          <Card v-bind:endpointItem="endpoint" />
+          <Card class="endpoint-container" v-bind:endpointItem="endpoint" />
         </p>
       </div>
     </div>
@@ -30,32 +30,46 @@ export default {
     return {
       endpoints: [
         {
-          title: "GET semua mantra",
+          title: "Get semua mantra",
           method: "GET",
-          url: "hindu.org/mantra",
+          url: "http://hindu-id.herokuapp.com/allmantras",
           parameters: [
             {
-              key: "header",
-              value: "11100"
-            },
-            {
-              key: "header2",
-              value: "11100"
+              key: "page",
+              value: "int"
             }
           ]
         },
         {
-          title: "GET semua kidung",
+          title: "Get mantra yang telah diverifikasi",
           method: "GET",
-          url: "hindu.org/mantra",
+          url: "http://hindu-id.herokuapp.com/mantra",
           parameters: [
             {
-              key: "header",
-              value: "11100"
-            },
+              key: "page",
+              value: "int"
+            }
+          ]
+        },
+         {
+          title: "Get semua kidung",
+          method: "GET",
+          url: "http://hindu-id.herokuapp.com/allkidungs",
+          parameters: [
             {
-              key: "header2",
-              value: "11100"
+              key: "page",
+              value: "int"
+            }
+          ]
+        },
+         {
+          title: "Get kidung yang telah diverifikasi",
+          method: "GET",
+          url: "http://hindu-id.herokuapp.com/kidung",
+          parameters: [
+            {
+              key: "page",
+              value: "int"
             }
           ]
         }
@@ -102,6 +116,15 @@ $linkColorHover: lighten($linkColor, 20%);
     background: $linkColor;
     border: $linkColor;
   }
+
+  .endpoint-container{
+    margin-top: 18px;
+  }
 }
 
+@media (max-width: 768px) { 
+ .header {
+   margin-top: 10vh;
+ }
+}
 </style>

@@ -2,10 +2,7 @@
     <div class="container">
         <h1>Kidung</h1>
         <div class="row">
-            <div class="col-sm-4">
-                <Form form="Kidung" :isMantra="false"> </Form>
-            </div>
-            <div class="offset-sm-1 col-sm-7">
+            <div class="col-sm-12">
                 <p v-for="kidung in kidungs">
                     <Item v-bind:item="kidung" />
                 </p>
@@ -19,12 +16,10 @@
 </template>
 
 <script>
-import Form from "@/components/mainpage/AddForm.vue";
-import Item from "@/components/mainpage/ItemKidung.vue";
+import Item from "@/components/acceptedpage/ItemKidung.vue";
 import axios from "axios";
 export default {
   components: {
-    Form,
     Item
   },
   data() {
@@ -39,7 +34,7 @@ export default {
   methods: {
     fetchKidung() {
       axios
-        .get("http://hindu-id.herokuapp.com/allkidungs", {
+        .get("http://hindu-id.herokuapp.com/kidung", {
           headers: {
             page: this.page,
             Pragma: "no-cache" 
@@ -55,7 +50,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-
-</style>

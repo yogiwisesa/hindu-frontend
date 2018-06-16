@@ -2,10 +2,7 @@
   <div class="container">
     <h1>Mantra / Doa Sehari-hari</h1>
     <div class="row">
-      <div class="col-sm-4">
-        <Form form="Mantra" :isMantra="true"> </Form>
-      </div>
-      <div class="offset-sm-1 col-sm-7">
+      <div class="col-sm-12">
         <p v-for="mantra in mantras">
           <Item v-bind:item="mantra" />
         </p>
@@ -18,12 +15,10 @@
 </template>
 
 <script>
-import Form from "@/components/mainpage/AddForm.vue";
 import Item from "@/components/mainpage/ItemMantra.vue";
 import axios from "axios";
 export default {
   components: {
-    Form,
     Item
   },
   data() {
@@ -39,7 +34,7 @@ export default {
     fetchMantra() {
 
       axios
-        .get("http://hindu-id.herokuapp.com/allmantras", {
+        .get("http://hindu-id.herokuapp.com/mantra", {
           headers: {
             page: this.page, 
             Pragma: "no-cache" 
@@ -61,7 +56,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -4,7 +4,7 @@
       <div class="offset-sm-3 col-sm-6">
         <div class="card">
           <div class="card-header">
-            <h3>Login</h3>
+            <h3>Registrasi Akun Baru</h3>
           </div>
 
           <div class="card-body">
@@ -17,14 +17,7 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" v-model="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
-              <button type="submit" v-on:click="login" class="btn btn-outline-dark">Login</button>
-               <div class="create-account">
-
-                  <router-link class="nav-link" to="/register" active-class="active">Registrasi akun baru</router-link>
-
-
-      
-               </div>
+              <button type="submit" v-on:click="login" class="btn btn-outline-dark">Registrasi</button>
                <b-alert variant="danger" :show="isLoginFailed" dismissible>{{ loginFailedMessage }}</b-alert>
             </form>
           </div>
@@ -36,6 +29,8 @@
 </template>
 
 <script>
+// TODO: REFACTOR
+
 import axios from "axios";
 
 export default {
@@ -61,7 +56,7 @@ export default {
       bodyFormData.append("password", this.password);
       axios({
         method: "post",
-        url: "http://hindu-id.herokuapp.com/login",
+        url: "http://hindu-id.herokuapp.com/register",
         data: bodyFormData,
         config: {
           headers: {
@@ -81,7 +76,7 @@ export default {
         })
         .catch(err => {
           this.isLoginFailed =true
-          this.loginFailedMessage = `Login gagal: ${err}`
+          this.loginFailedMessage = `Registrasi gagal: ${err}`
         });
     }
   }

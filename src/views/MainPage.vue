@@ -7,8 +7,8 @@
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
 
-              <router-link class="nav-item nav-link" tag="li" to="/main/mantra" active-class="active">Tambah Mantra</router-link>
-              <router-link class="nav-item nav-link" tag="li" to="/main/kidung" active-class="active">Tambah Kidung</router-link>
+              <router-link class="nav-item nav-link" tag="li" to="/main/mantra" active-class="active">Mantra</router-link>
+              <router-link class="nav-item nav-link" tag="li" to="/main/kidung" active-class="active">Kidung</router-link>
 
             </ul>
           </div>
@@ -31,6 +31,9 @@ export default {
       urlSuara: ""
     };
   },
+  created() {
+    this.routeBackToLogin()
+  },
   computed: {
     getCredentials() {
       return {
@@ -40,10 +43,10 @@ export default {
     }
   },
   methods: {
-    simpanMantra() {
-      console.log("======================");
-      console.log(this.mantra);
-      console.log("======================");
+    routeBackToLogin() {
+      if (!this.$store.state.authenticated) {
+        this.$router.push({ path: "/login" });
+      }
     }
   }
 };

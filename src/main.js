@@ -5,11 +5,12 @@ import store from './store'
 import VueAlert from '@vuejs-pt/vue-alert'
 import BootstrapVue from 'bootstrap-vue'
 
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue);
-Vue.use(VueAlert)
+Vue.use(VueAlert);
 
 Vue.config.productionTip = false
 
