@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
-import Login from './views/Login.vue'
+import LandingPage from './views/LandingPage.vue'
+import AboutPage from './views/AboutPage.vue'
+import LoginPage from './views/LoginPage.vue'
+import MainPage from './views/MainPage.vue'
+import Mantra from './components/mainpage/Mantra.vue'
+import Kidung from './components/mainpage/Kidung.vue'
 
 Vue.use(Router)
 
@@ -10,18 +13,29 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      component: LandingPage
     },
     {
       path: '/about',
-      name: 'about',
-      component: About
+      component: AboutPage
     },
     {
       path: '/login',
-      name: 'login',
-      component: Login
+      component: LoginPage
+    },
+    {
+      path: '/main',
+      component: MainPage,
+      children:[
+        {
+          path: 'mantra',
+          component: Mantra
+        },
+        {
+          path: 'kidung',
+          component: Kidung
+        }
+      ]
     },
   ]
 })

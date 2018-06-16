@@ -6,7 +6,7 @@
         <h1 class="title">Dapatkan daftar doa & kidung Hindu!</h1>
         <h3 class="subtitle">Sebuah proyek open source untuk umat Hindu di Indonesia</h3>
         <p>Mari berkontribusi untuk menambahkan dan mengoreksi doa & kidung yang ada. Untuk para developer dapat menggunakan REST API untuk mengembangkan aplikasinya sendiri.</p>
-        <button class="btn btn-outline-dark btn-login">Login</button>
+         <router-link class="btn btn-outline-dark btn-login" to="/main/tambahmantra" >Login</router-link>
         <button class="btn btn-outline-dark btn-github">Github</button>
       </div>
     </div>
@@ -26,7 +26,6 @@
 import Card from "@/components/home/card.vue";
 
 export default {
-  name: "home",
   data() {
     return {
       endpoints: [
