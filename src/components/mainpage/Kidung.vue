@@ -50,6 +50,8 @@ export default {
           this.page = this.page + 1 ;
         })
         .catch(err => {
+          // eslint-disable-next-line
+          console.log(err)
         });
     }
   }
