@@ -48,14 +48,8 @@ export default {
         .then(response => {
           this.mantras.push(...response.data.result.data);
           this.page = this.page + 1;
-          console.log("======================");
-          console.log(response.data.result.data);
-          console.log("======================");
         })
         .catch(err => {
-          console.log("======================");
-          console.log(err);
-          console.log("======================");
         });
     }
   }
